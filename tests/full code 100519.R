@@ -153,16 +153,14 @@ fp_prefix = "FCFP4_1024b"
 ## Seed for reproducability ====
 set.seed(123)
 
-## Set working directory ====
-setwd("C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100 Datasets")
-
 ## Paths ====
-path_dsets = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100 Datasets/Splits Train/"
-path_dset_outp = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100 Datasets/extended data/"
+path_dsets = '/shared/mtl-qsar/data_splits/'
+dsets = '/shared/mtl-qsar/datasets/originals/'
+path_dset_outp = "/shared/mtl-qsar/datasets/extended data/"
 dir.create(path_dset_outp, recursive = T)
 
 ## Read in all datasets ====
-multipl = read_bulk(directory = path_dsets, # Finds the path for the files
+multipl = read_bulk(directory = dsets, # Finds the path for the files
                     fun = readr::read_csv,
                     col_types = cols(
                       .default = col_integer(),
@@ -186,7 +184,39 @@ names(multipl_fp) = molid_list # renames the columns
 fpcolnams = str_subset(names(multipl), fp_prefix) 
 multipl = multipl %>% select(-starts_with(fp_prefix))
 
-train.split = list.files(path_dsets)
+train.split = list.files(path_dsets, full.names = TRUE)
+
+data.full = list.files(dsets, full.names = TRUE)
+
+train.data = foreach(num = train.split) %do% {
+  read_csv(num)
+}
+
+full.dsets = foreach(count = data.full) %do% {
+  read_csv(count)
+}
+
+sz = length(train.data)
+
+trn.lst = list()
+dset.lst = list()
+
+for(i in 1:sz){
+  folds = train.data[[i]] # reads in each file of data containing test sets per fold
+  
+  for(dati in 1:sz){
+    dat = full.dsets[[dati]]
+    
+    for(foldi in 1:10){
+      match = subset(folds, foldi == folds$fold)
+      colnames(match)[1] <- "molecule_id"
+      
+      splt = anti_join(dat, match, by = 'molecule_id')
+      trn.lst[[foldi]] = splt
+      }
+  }
+  dset.lst[[i]] = trn.lst
+}
 
 walk(train.split, create_extdset)
 
