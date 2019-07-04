@@ -85,17 +85,21 @@ library(infotheo)
 ############################################################################################################
 
 ## Set Working Directory ====
-setwd("C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper")
-a = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper"
+#setwd("C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper")
+#a = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper"
 
-dats = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100_Dataset_Sample" # 180327_data_sample_qsars
-dat.sz = list.files(dats, full.names = T)
+#dats = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100_Dataset_Sample" # 180327_data_sample_qsars
+
+dats <- "/shared/mtl-qsar/datasets/originals/"
+dat.sz = list.files(dats, full.names = F)
 
 ## Paths ====
-path_dset_outp = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100 Datasets/Splits Train/"
+#path_dset_outp = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100 Datasets/Splits Train/"
+path_dset_outp <- "/shared/mtl-qsar/mtl_assisst/data_splits/train/"
 dir.create(path_dset_outp, recursive = T)
 
-path_dset_outp_test = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100 Datasets/Splits Test/"
+#path_dset_outp_test = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100 Datasets/Splits Test/"
+path_dset_outp <- "/shared/mtl-qsar/mtl_assisst/data_splits/test/"
 dir.create(path_dset_outp_test, recursive = T)
 
 ## Seed for reproducability ====
@@ -105,16 +109,17 @@ set.seed(123)
 CV.split = 10
 nrow = length(dat.sz)
 
+####This bit needs to be replace by something else so we can use the splits already available
 ## Split 90% - 10% ====
 for (i in 1:nrow) {
   data_fname = dat.sz[i] 
-  data = read_csv(data_fname) # reads in each file of data
+  data = read_csv(paste0(dats, data_fname)) # reads in each file of data
   
   a = nchar(data_fname) # Number of characters
-  abrev_name = substr(data_fname, (a - 13), a) # shortened name
+  abrev_name = substr(data_fname, (a - 13), a) # shortened name ##FIXME: extract this info using str_remove_all 
   
   # creates the data splitted into CV.split groups
-  cv = cvFolds(n = nrow(data), CV.split) # trying to make sure that the groups are of equal size
+  cv = cvFolds(n = nrow(data), CV.split) # trying to make sure that the groups are of equal size ##FIXME: replace cvFolds by my own version
   
   index = foreach(iter = 1:CV.split, .combine = "rbind") %do% {
     trn.id = cv$subsets[cv$which != iter] # Takes out row ids that are not equal to the iteration number
@@ -139,6 +144,7 @@ for (i in 1:nrow) {
   }
   
 }
+#######
 
 ############################################################################################################
 ############################################################################################################
