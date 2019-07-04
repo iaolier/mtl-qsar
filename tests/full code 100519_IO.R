@@ -85,6 +85,7 @@ library(infotheo)
 ############################################################################################################
 
 ## Set Working Directory ====
+<<<<<<< HEAD
 #setwd("C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper")
 #a = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper"
 
@@ -100,6 +101,19 @@ dir.create(path_dset_outp, recursive = T)
 
 #path_dset_outp_test = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100 Datasets/Splits Test/"
 path_dset_outp <- "/shared/mtl-qsar/mtl_assisst/data_splits/test/"
+=======
+setwd("C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper")
+a = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper"
+
+dats = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100_Dataset_Sample" # 180327_data_sample_qsars
+dat.sz = list.files(dats, full.names = T)
+
+## Paths ====
+path_dset_outp = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100 Datasets/Splits Train/"
+dir.create(path_dset_outp, recursive = T)
+
+path_dset_outp_test = "C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100 Datasets/Splits Test/"
+>>>>>>> d5cb01acc50d4b5be9f5f62c349fc3fd3b723fc3
 dir.create(path_dset_outp_test, recursive = T)
 
 ## Seed for reproducability ====
@@ -109,6 +123,7 @@ set.seed(123)
 CV.split = 10
 nrow = length(dat.sz)
 
+<<<<<<< HEAD
 ####This bit needs to be replace by something else so we can use the splits already available
 ## Split 90% - 10% ====
 for (i in 1:nrow) {
@@ -120,6 +135,18 @@ for (i in 1:nrow) {
   
   # creates the data splitted into CV.split groups
   cv = cvFolds(n = nrow(data), CV.split) # trying to make sure that the groups are of equal size ##FIXME: replace cvFolds by my own version
+=======
+## Split 90% - 10% ====
+for (i in 1:nrow) {
+  data_fname = dat.sz[i] 
+  data = read_csv(data_fname) # reads in each file of data
+  
+  a = nchar(data_fname) # Number of characters
+  abrev_name = substr(data_fname, (a - 13), a) # shortened name
+  
+  # creates the data splitted into CV.split groups
+  cv = cvFolds(n = nrow(data), CV.split) # trying to make sure that the groups are of equal size
+>>>>>>> d5cb01acc50d4b5be9f5f62c349fc3fd3b723fc3
   
   index = foreach(iter = 1:CV.split, .combine = "rbind") %do% {
     trn.id = cv$subsets[cv$which != iter] # Takes out row ids that are not equal to the iteration number
@@ -144,7 +171,10 @@ for (i in 1:nrow) {
   }
   
 }
+<<<<<<< HEAD
 #######
+=======
+>>>>>>> d5cb01acc50d4b5be9f5f62c349fc3fd3b723fc3
 
 ############################################################################################################
 ############################################################################################################
@@ -159,6 +189,7 @@ fp_prefix = "FCFP4_1024b"
 ## Seed for reproducability ====
 set.seed(123)
 
+<<<<<<< HEAD
 ## Set working directory ====
 setwd("C:/Users/cmppmcc1/OneDrive - Liverpool John Moores University/PhD/MTL Work/MTL Paper/100 Datasets")
 
@@ -169,6 +200,16 @@ dir.create(path_dset_outp, recursive = T)
 
 ## Read in all datasets ====
 multipl = read_bulk(directory = path_dsets, # Finds the path for the files
+=======
+## Paths ====
+path_dsets = '/shared/mtl-qsar/data_splits/'
+dsets = '/shared/mtl-qsar/datasets/originals/'
+path_dset_outp = "/shared/mtl-qsar/datasets/extended data/"
+dir.create(path_dset_outp, recursive = T)
+
+## Read in all datasets ====
+multipl = read_bulk(directory = dsets, # Finds the path for the files
+>>>>>>> d5cb01acc50d4b5be9f5f62c349fc3fd3b723fc3
                     fun = readr::read_csv,
                     col_types = cols(
                       .default = col_integer(),
@@ -192,7 +233,43 @@ names(multipl_fp) = molid_list # renames the columns
 fpcolnams = str_subset(names(multipl), fp_prefix) 
 multipl = multipl %>% select(-starts_with(fp_prefix))
 
+<<<<<<< HEAD
 train.split = list.files(path_dsets)
+=======
+train.split = list.files(path_dsets, full.names = TRUE)
+
+data.full = list.files(dsets, full.names = TRUE)
+
+train.data = foreach(num = train.split) %do% {
+  read_csv(num)
+}
+
+full.dsets = foreach(count = data.full) %do% {
+  read_csv(count)
+}
+
+sz = length(train.data)
+
+trn.lst = list()
+dset.lst = list()
+
+for(i in 1:sz){
+  folds = train.data[[i]] # reads in each file of data containing test sets per fold
+  
+  for(dati in 1:sz){
+    dat = full.dsets[[dati]]
+    
+    for(foldi in 1:10){
+      match = subset(folds, foldi == folds$fold)
+      colnames(match)[1] <- "molecule_id"
+      
+      splt = anti_join(dat, match, by = 'molecule_id')
+      trn.lst[[foldi]] = splt
+      }
+  }
+  dset.lst[[i]] = trn.lst
+}
+>>>>>>> d5cb01acc50d4b5be9f5f62c349fc3fd3b723fc3
 
 walk(train.split, create_extdset)
 
