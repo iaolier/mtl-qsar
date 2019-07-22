@@ -108,7 +108,7 @@ RF.mult = foreach(trains_iter = 1:length(tst.out), .combine = "rbind") %do% {
   tst.data = do.call(rbind.data.frame, tst.data)
   tst.data = tst.data %>% select(-molecule_id)
   
-  mdl = ranger(pXC50 ~ ., trn.dset) # makes the random frest modell, with the pXC50 as the output and the remainder inputs
+  mdl = ranger(pXC50 ~ ., trn.data) # makes the random frest modell, with the pXC50 as the output and the remainder inputs
   
   preds = predict(mdl, data = tst.data)
   
@@ -116,7 +116,7 @@ RF.mult = foreach(trains_iter = 1:length(tst.out), .combine = "rbind") %do% {
   names = substr(names, 37, nchar(names))
   names = substr(names, 1, nchar(names)-4)
   
-  print(inner) # To chek progress
+  print(inloop) # To chek progress
   
   outp = data_frame(iter = trains_iter, true = tst.data$pXC50, predicted = preds$predictions, dataset_id = names) # stores the output with the actual values and the predicted values in seperate columns
   }
