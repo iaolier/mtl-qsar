@@ -22,17 +22,18 @@ sel_mols <- function(fplist_org, fplist_pool, thresholds) {
   map_df(1:nrow(sim_mat), ~ tibble(row_pool = which(sim_mat[.x,] >= thresholds[.x]), row_orig = .x )) 
 }
 
-form_assisst_task <- function(dset_prim, dset_aux) {
+form_assist_task <- function(dset_prim, dset_aux) {
   #create fingerprint lists
   fplist_prim <- df2matfp(dset_prim, .fp_prefix = "FCFP4_1024b") %>% create_fplist
   fplist_aux <- df2matfp(dset_aux, .fp_prefix = "FCFP4_1024b") %>% create_fplist
   
   #estimate threshold
-  thrs <- fplist_prim %>% get_thresh
+  #thrs <- fplist_prim %>% get_thresh
+  thrs <- rep(0.8, length(fplist_prim))
   
   #select molecules that tanimoto > threshold
   sels <- sel_mols(fplist_prim, fplist_aux, thrs)
- 
+  
   #std dev of pXC50 of primary dataset
   sd_dsetp <- sd(dset_prim$pXC50)
   

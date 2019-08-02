@@ -30,12 +30,12 @@ dset2 <- dset2 %>%
 ### 
 dset2 <- read.csv("/shared/mtl-qsar/datasets/originals/data_30546.csv")
 
-dset_tmp <- form_assisst_task(dset1, dset2)
+dset_tmp <- form_assist_task(dset1, dset2)
 
 ###
 fnames <- list.files("/shared/mtl-qsar/datasets/originals/", full.names = T)
 fnames <- fnames[1:5]
 dset_aux <- map_df(fnames, read.csv)
 
-dset_tmp <- form_assisst_task(dset1, dset_aux)
+dset_tmp <- form_assist_task(dset1, dset_aux)
 

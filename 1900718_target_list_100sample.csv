@@ -1,0 +1,101 @@
+target_id,pref_name,organism,target_type_id,n_compounds,dataset_id,file_name
+CHEMBL2189162,Pyruvate kinase,Staphylococcus aureus (strain MRSA252),SINGLE PROTEIN,53,31425,data_31425.csv
+CHEMBL4796,Beta-chymotrypsin,Homo sapiens,SINGLE PROTEIN,111,32874,data_32874.csv
+CHEMBL2808,LXR-alpha,Homo sapiens,SINGLE PROTEIN,614,31780,data_31780.csv
+CHEMBL5431,Histidinol dehydrogenase,Brucella suis biovar 1 (strain 1330),SINGLE PROTEIN,30,33148,data_33148.csv
+CHEMBL5800,Falcipain 2,Plasmodium falciparum,SINGLE PROTEIN,172,33333,data_33333.csv
+CHEMBL1649059,Serine/threonine-protein kinase VRK2,Homo sapiens,SINGLE PROTEIN,73,30719,data_30719.csv
+CHEMBL3414,Human herpesvirus 5 DNA polymerase,Human cytomegalovirus (strain AD169) (HHV-5) (Human herpesvirus 5),SINGLE PROTEIN,60,32128,data_32128.csv
+CHEMBL5466,Activin receptor type-2B,Homo sapiens,SINGLE PROTEIN,83,33170,data_33170.csv
+CHEMBL3501,Cholecystokinin A receptor,Cavia porcellus,SINGLE PROTEIN,731,32191,data_32191.csv
+CHEMBL307,Neuronal acetylcholine receptor protein alpha-4 subunit,Rattus norvegicus,SINGLE PROTEIN,177,31915,data_31915.csv
+CHEMBL5931,Carbonic anhydrase,Saccharomyces cerevisiae S288c,SINGLE PROTEIN,40,33373,data_33373.csv
+CHEMBL3048,"Nitric-oxide synthase, brain",Rattus norvegicus,SINGLE PROTEIN,407,31905,data_31905.csv
+CHEMBL4133,Cyclooxygenase-1,Canis lupus familiaris,SINGLE PROTEIN,105,32528,data_32528.csv
+CHEMBL3636,Neuromedin B receptor,Homo sapiens,SINGLE PROTEIN,177,32243,data_32243.csv
+CHEMBL1875,Serotonin 4 (5-HT4) receptor,Homo sapiens,SINGLE PROTEIN,412,30896,data_30896.csv
+CHEMBL5497,Neuropeptide S receptor,Mus musculus,SINGLE PROTEIN,84,33184,data_33184.csv
+CHEMBL2096986,Cholecystokinin receptor,Rattus norvegicus,PROTEIN FAMILY,121,31267,data_31267.csv
+CHEMBL1293229,Nuclear receptor subfamily 4 group A member 1,Homo sapiens,SINGLE PROTEIN,281,30707,data_30707.csv
+CHEMBL2185,Serine/threonine-protein kinase Aurora-B,Homo sapiens,SINGLE PROTEIN,2044,31549,data_31549.csv
+CHEMBL5867,Transcriptional activator protein luxR,Vibrio fischeri (strain ATCC 700601 / ES114),SINGLE PROTEIN,30,33352,data_33352.csv
+CHEMBL5427,Homeodomain-interacting protein kinase 1,Homo sapiens,SINGLE PROTEIN,78,33146,data_33146.csv
+CHEMBL4175,Tyrosine-protein kinase CTK,Homo sapiens,SINGLE PROTEIN,519,32566,data_32566.csv
+CHEMBL3959,Quinone reductase 2,Homo sapiens,SINGLE PROTEIN,233,32417,data_32417.csv
+CHEMBL6172,D-amino-acid oxidase,Sus scrofa,SINGLE PROTEIN,48,33476,data_33476.csv
+CHEMBL3920,Protein kinase C theta,Homo sapiens,SINGLE PROTEIN,899,32457,data_32457.csv
+CHEMBL4311,Serine/threonine-protein kinase PAK6,Homo sapiens,SINGLE PROTEIN,81,32616,data_32616.csv
+CHEMBL3459,Serotonin 1b (5-HT1b) receptor,Rattus norvegicus,SINGLE PROTEIN,397,32159,data_32159.csv
+CHEMBL3738,Leukotriene A4 hydrolase,Mus musculus,SINGLE PROTEIN,47,32295,data_32295.csv
+CHEMBL2176851,Replicative DNA helicase,Bacillus anthracis,SINGLE PROTEIN,30,31412,data_31412.csv
+CHEMBL1907599,Integrin alpha-4/beta-1,Homo sapiens,PROTEIN COMPLEX,1203,31011,data_31011.csv
+CHEMBL5907,Serine/threonine-protein kinase LATS2,Homo sapiens,SINGLE PROTEIN,79,33365,data_33365.csv
+CHEMBL203,Epidermal growth factor receptor erbB1,Homo sapiens,SINGLE PROTEIN,5013,33505,data_33505.csv
+CHEMBL4162,Protein-tyrosine phosphatase 4A3,Homo sapiens,SINGLE PROTEIN,38,32545,data_32545.csv
+CHEMBL313,Serotonin transporter,Rattus norvegicus,SINGLE PROTEIN,3527,32860,data_32860.csv
+CHEMBL1275217,C-C motif chemokine 5,Homo sapiens,SINGLE PROTEIN,30,30646,data_30646.csv
+CHEMBL3160,Thymidylate synthase,Mus musculus,SINGLE PROTEIN,470,31963,data_31963.csv
+CHEMBL4577,Homeodomain-interacting protein kinase 3,Homo sapiens,SINGLE PROTEIN,76,32743,data_32743.csv
+CHEMBL2094256,Angiotensin II receptor,Homo sapiens,PROTEIN FAMILY,748,31189,data_31189.csv
+CHEMBL2331070,Acid ceramidase,Rattus norvegicus,SINGLE PROTEIN,32,31514,data_31514.csv
+CHEMBL2095231,"Hepatitis C virus serine protease, NS3/NS4A",Hepatitis C virus,PROTEIN COMPLEX,229,31225,data_31225.csv
+CHEMBL1946,Melatonin receptor 1B,Homo sapiens,SINGLE PROTEIN,712,30999,data_30999.csv
+CHEMBL2801,CaM kinase II delta,Homo sapiens,SINGLE PROTEIN,792,31775,data_31775.csv
+CHEMBL2810,Protein-glutamine gamma-glutamyltransferase K,Homo sapiens,SINGLE PROTEIN,90,31772,data_31772.csv
+CHEMBL2577,Sodium/hydrogen exchanger 1,Rattus norvegicus,SINGLE PROTEIN,120,31651,data_31651.csv
+CHEMBL2009,"Glutamate receptor ionotropic, AMPA 1",Homo sapiens,SINGLE PROTEIN,75,31020,data_31020.csv
+CHEMBL1962,GABA receptor alpha-1 subunit,Homo sapiens,SINGLE PROTEIN,104,30987,data_30987.csv
+CHEMBL2096665,Pyruvate dehydrogenase kinase,Homo sapiens,PROTEIN FAMILY,109,31226,data_31226.csv
+CHEMBL3074,Tyrosine-protein kinase SRC,Mus musculus,SINGLE PROTEIN,35,31919,data_31919.csv
+CHEMBL2111391,Fibroblast growth factor receptor,Mus musculus,PROTEIN FAMILY,37,31322,data_31322.csv
+CHEMBL5122,Discoidin domain-containing receptor 2,Homo sapiens,SINGLE PROTEIN,125,33022,data_33022.csv
+CHEMBL1293303,Nonstructural protein 1,Influenza A virus,SINGLE PROTEIN,130,30717,data_30717.csv
+CHEMBL270,Mu opioid receptor,Rattus norvegicus,SINGLE PROTEIN,2578,31848,data_31848.csv
+CHEMBL4744,Alpha-2a adrenergic receptor,Bos taurus,SINGLE PROTEIN,122,32853,data_32853.csv
+CHEMBL1909485,Glycogen synthase kinase 3 beta,Sus scrofa,SINGLE PROTEIN,48,30934,data_30934.csv
+CHEMBL3508,Cholecystokinin B receptor,Rattus norvegicus,SINGLE PROTEIN,540,32185,data_32185.csv
+CHEMBL2095154,Melatonin receptor,Gallus gallus,PROTEIN FAMILY,292,31163,data_31163.csv
+CHEMBL1293286,Polyadenylate-binding protein 1,Homo sapiens,SINGLE PROTEIN,1408,30946,data_30946.csv
+CHEMBL4477,Metabotropic glutamate receptor 1,Rattus norvegicus,SINGLE PROTEIN,483,32710,data_32710.csv
+CHEMBL5388,Serine/threonine-protein kinase tousled-like 1,Homo sapiens,SINGLE PROTEIN,79,33121,data_33121.csv
+CHEMBL2581,Cathepsin D,Homo sapiens,SINGLE PROTEIN,1187,31660,data_31660.csv
+CHEMBL3998,Dopamine D2 receptor,Bos taurus,SINGLE PROTEIN,307,32453,data_32453.csv
+CHEMBL1808,Angiotensin-converting enzyme,Homo sapiens,SINGLE PROTEIN,569,30872,data_30872.csv
+CHEMBL2633,Prostatic acid phosphatase,Homo sapiens,SINGLE PROTEIN,39,31682,data_31682.csv
+CHEMBL2111413,GABA A receptor alpha-2/beta-2/gamma-2,Homo sapiens,PROTEIN COMPLEX,79,31343,data_31343.csv
+CHEMBL4820,Prostanoid FP receptor,Bos taurus,SINGLE PROTEIN,32,32885,data_32885.csv
+CHEMBL2949,Cyclooxygenase-1,Ovis aries,SINGLE PROTEIN,1158,31858,data_31858.csv
+CHEMBL4767,Vesicular acetylcholine transporter,Homo sapiens,SINGLE PROTEIN,206,32866,data_32866.csv
+CHEMBL240,HERG,Homo sapiens,SINGLE PROTEIN,6003,33511,data_33511.csv
+CHEMBL4005,PI3-kinase p110-alpha subunit,Homo sapiens,SINGLE PROTEIN,2314,32810,data_32810.csv
+CHEMBL2908,11-beta-hydroxysteroid dehydrogenase 2,Rattus norvegicus,SINGLE PROTEIN,33,31825,data_31825.csv
+CHEMBL4487,Serine/threonine-protein kinase PAK 2,Homo sapiens,SINGLE PROTEIN,90,32700,data_32700.csv
+CHEMBL3840,Ribonucleoside-diphosphate reductase large chain,Herpes simplex virus (type 1 / strain 17),SINGLE PROTEIN,61,32351,data_32351.csv
+CHEMBL4211,Carbonic anhydrase 1,Helicobacter pylori (strain ATCC 700392 / 26695) (Campylobacterpylori),SINGLE PROTEIN,47,32568,data_32568.csv
+CHEMBL1075022,ParE,Streptococcus pneumoniae,SINGLE PROTEIN,35,30544,data_30544.csv
+CHEMBL3102,Dopamine beta-hydroxylase,Homo sapiens,SINGLE PROTEIN,32,31933,data_31933.csv
+CHEMBL6165,Urotensin-2,Homo sapiens,SINGLE PROTEIN,61,33474,data_33474.csv
+CHEMBL2602,Cathepsin B,Rattus norvegicus,SINGLE PROTEIN,30,31665,data_31665.csv
+CHEMBL3622,Cytochrome P450 2C19,Homo sapiens,SINGLE PROTEIN,1191,32310,data_32310.csv
+CHEMBL2409,Epoxide hydratase,Homo sapiens,SINGLE PROTEIN,1174,31586,data_31586.csv
+CHEMBL1907593,Neuronal acetylcholine receptor; alpha3/beta4,Rattus norvegicus,PROTEIN COMPLEX,179,30908,data_30908.csv
+CHEMBL2096909,"Interleukin-8 receptors, CXCR1/CXCR2",Homo sapiens,PROTEIN FAMILY,70,31242,data_31242.csv
+CHEMBL3994,Enoyl-[acyl-carrier-protein] reductase,Staphylococcus aureus subsp. aureus MRSA252,SINGLE PROTEIN,47,32443,data_32443.csv
+CHEMBL258,Tyrosine-protein kinase LCK,Homo sapiens,SINGLE PROTEIN,2615,31760,data_31760.csv
+CHEMBL4523,Serine/threonine-protein kinase PIM2,Homo sapiens,SINGLE PROTEIN,1103,32777,data_32777.csv
+CHEMBL1293251,ATP-dependent molecular chaperone HSP82,Candida albicans (strain WO-1) (Yeast),SINGLE PROTEIN,1155,30889,data_30889.csv
+CHEMBL2872,Mitogen-activated protein kinase kinase kinase 9,Homo sapiens,SINGLE PROTEIN,143,31804,data_31804.csv
+CHEMBL5375,Hepatitis C virus NS5B RNA-dependent RNA polymerase,Hepatitis C virus,SINGLE PROTEIN,1133,33353,data_33353.csv
+CHEMBL5285,Mitogen-activated protein kinase kinase kinase 5,Homo sapiens,SINGLE PROTEIN,162,33082,data_33082.csv
+CHEMBL5258,CaM kinase I gamma,Homo sapiens,SINGLE PROTEIN,79,33058,data_33058.csv
+CHEMBL2055,Retinoic acid receptor alpha,Homo sapiens,SINGLE PROTEIN,269,31073,data_31073.csv
+CHEMBL1919,Voltage-gated calcium channel alpha2/delta subunit 1,Homo sapiens,SINGLE PROTEIN,163,30949,data_30949.csv
+CHEMBL3919,Potassium-transporting ATPase alpha chain 1,Sus scrofa,SINGLE PROTEIN,36,32396,data_32396.csv
+CHEMBL2411,Serotonin 3a (5-HT3a) receptor,Rattus norvegicus,SINGLE PROTEIN,118,31560,data_31560.csv
+CHEMBL3923,Nischarin,Homo sapiens,SINGLE PROTEIN,174,32405,data_32405.csv
+CHEMBL2284,Glyceraldehyde-3-phosphate dehydrogenase liver,Homo sapiens,SINGLE PROTEIN,798,31493,data_31493.csv
+CHEMBL1991,Inhibitor of nuclear factor kappa B kinase beta subunit,Homo sapiens,SINGLE PROTEIN,1266,31111,data_31111.csv
+CHEMBL4596,C-C chemokine receptor type 8,Homo sapiens,SINGLE PROTEIN,163,32750,data_32750.csv
+CHEMBL1857,Enoyl-[acyl-carrier-protein] reductase,Escherichia coli K-12,SINGLE PROTEIN,96,30866,data_30866.csv
+CHEMBL3026,GABA receptor alpha-3 subunit,Homo sapiens,SINGLE PROTEIN,40,31891,data_31891.csv
+CHEMBL3241,Histamine N-methyltransferase,Rattus norvegicus,SINGLE PROTEIN,36,32019,data_32019.csv
