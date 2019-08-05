@@ -42,16 +42,44 @@ ext.data = list()
 
 for (dnum in 1:len){
   
-  split = read_csv(data_splits[dnum]) # pulls out the split information for the primary task 
-  assist = read_csv(assist_data[dnum]) # pull out fold info for given dataset
-  orig = read_csv(original[dnum])
+  # split = read_csv(data_splits[dnum]) # pulls out the split information for the primary task 
+  # assist = read_csv(assist_data[dnum]) # pull out fold info for given dataset
+  # orig = read_csv(original[dnum])
+  # 
+  # names(split)[1] = 'molecule_id'
+  # 
+  # for (iter in 1:10){
+  #   
+  #  # tmp1 = assist[[iter]] # pulls out the fold IDs
+  #   
+  #   tst = split[split$fold == iter,] # pulls out data matching the CV folds
+  #   tst = merge(orig, tst, by = 'molecule_id')
+  #   tst = select(tst, -c(fold))
+  #   
+  #   trn = split[split$fold != iter,] # pulls out not matching CV folds
+  #   trn = merge(orig, trn, by = 'molecule_id')
+  #   trn = select(trn, -c(fold))
+  #   
+  #   tst.list[[iter]] = tst # stores tst set in list
+  #   trn.list[[iter]] = trn # stores training set in a list
+  #   
+  #   a_trn = assist[assist$fold == iter,]
+  #   a_trn = select(a_trn, -c(fold, dataset_id))
+  #   a.trn[[iter]] = a_trn
+  # }
+  # 
+  # stl.out[[dnum]] = trn.list # stores training sets for whole dataset in list - reference with trn.out[['a']]
+  # mtl.out[[dnum]] = a.trn # stores the assistant task for whole dataset in list
+  # tst.out[[dnum]] = tst.list # stores test set for whole dataset in list form
+  #
+  
+  split = read_csv(data_splits[trains_iter]) # pulls out the split information for the primary task 
+  assist = read_csv(assist_data[trains_iter]) # pull out fold info for given dataset
+  orig = read_csv(original[trains_iter])
   
   names(split)[1] = 'molecule_id'
   
-  for (iter in 1:10){
-    
-   # tmp1 = assist[[iter]] # pulls out the fold IDs
-    
+  foreach (iter = 1:len, .combine = "rbind") %do% {
     tst = split[split$fold == iter,] # pulls out data matching the CV folds
     tst = merge(orig, tst, by = 'molecule_id')
     tst = select(tst, -c(fold))
@@ -68,10 +96,9 @@ for (dnum in 1:len){
     a.trn[[iter]] = a_trn
   }
   
-  stl.out[[dnum]] = trn.list # stores training sets for whole dataset in list - reference with trn.out[['a']]
-  mtl.out[[dnum]] = a.trn # stores the assistant task for whole dataset in list
-  tst.out[[dnum]] = tst.list # stores test set for whole dataset in list form
- 
+  stl.out[[trains_iter]] = trn.list # stores training sets for whole dataset in list - reference with trn.out[['a']]
+  mtl.out[[trains_iter]] = a.trn # stores the assistant task for whole dataset in list
+  tst.out[[trains_iter]] = tst.list # stores test set for whole dataset in list form
 }
 
 ##### Create the extended dataset ====
@@ -98,7 +125,7 @@ for(outer in 1:10){
 a = '/shared/mtl-qsar/predictions/MTL/'
 
 ###### RANDOM FOREST ######
-RF.mult = foreach(trains_iter = 1:length(tst.out), .combine = "rbind") %do% {
+RF.mult.1 = foreach(trains_iter = 1:length(tst.out), .combine = "rbind") %do% {
   for(inloop in 1:10){
   trn.data = ext.data[[trains_iter]][inloop] # Select given datafold 
   trn.data = do.call(rbind.data.frame, trn.data)
@@ -108,7 +135,7 @@ RF.mult = foreach(trains_iter = 1:length(tst.out), .combine = "rbind") %do% {
   tst.data = do.call(rbind.data.frame, tst.data)
   tst.data = tst.data %>% select(-molecule_id)
   
-  mdl = ranger(pXC50 ~ ., trn.dset) # makes the random frest modell, with the pXC50 as the output and the remainder inputs
+  mdl = ranger(pXC50 ~ ., trn.data) # makes the random frest model, with the pXC50 as the output and the remainder inputs
   
   preds = predict(mdl, data = tst.data)
   
@@ -116,7 +143,7 @@ RF.mult = foreach(trains_iter = 1:length(tst.out), .combine = "rbind") %do% {
   names = substr(names, 37, nchar(names))
   names = substr(names, 1, nchar(names)-4)
   
-  print(inner) # To chek progress
+  print(inloop) # To chek progress
   
   outp = data_frame(iter = trains_iter, true = tst.data$pXC50, predicted = preds$predictions, dataset_id = names) # stores the output with the actual values and the predicted values in seperate columns
   }
