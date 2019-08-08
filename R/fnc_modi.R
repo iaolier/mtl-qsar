@@ -16,14 +16,14 @@ get_indx_max_sim = function(.mat) {
     apply(MARGIN=2,which.max)
 }
 
-mod_metric = function(.data) {
+mod_metric = function(.data, .rho = 1.0) {
   indx_sim = .data %>% 
     df2matfp(.fp_prefix = "FCFP4_1024") %>% 
     create_fplist %>%
     fp.sim.matrix %>% 
     get_indx_max_sim 
   
-  sd_dset = sd(.data$pXC50)
+  sd_dset = sd(.data$pXC50)*.rho
   
   .data = .data %>% 
     mutate(pXC50_2 = pXC50[indx_sim],
